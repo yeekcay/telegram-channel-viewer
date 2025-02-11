@@ -1,5 +1,5 @@
 # telegram-channel-viewer
-a python library that can view telegram channels without making a telegram app!
+a python library that can view telegram channels without making a telegram app! ( also works for users , groups )
 
 ## How It Works
 
@@ -60,3 +60,4 @@ print(f"Posted on: {post.date}")
 print(f"Views: {post.views}")
 ```
 ## This Project is Developed by Claude 3.5
+
