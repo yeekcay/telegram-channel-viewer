@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Telegram Channel Viewer</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css"/>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    form { max-width: 400px; margin: auto; }
+    input, button { width: 100%; padding: .5rem; margin-top: .5rem; }
+  </style>
+</head>
+<body>
+  <h1>Enter Telegram Channel</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color: red;">
+        {% for msg in messages %}<li>{{ msg }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="post">
+    <input name="channel" placeholder="e.g. pythonetc" autocomplete="off"/>
+    <button type="submit">View</button>
+  </form>
+</body>
+</html>
