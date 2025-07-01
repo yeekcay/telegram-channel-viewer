@@ -1,0 +1,3 @@
+Flask>=2.2.0
+gunicorn>=20.0.0
+telegram-channel-viewer @ git+https://github.com/bargmy/telegram-channel-viewer.git@main
