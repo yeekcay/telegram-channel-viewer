@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ info.name }}</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css"/>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 2rem; }
+    .header { display: flex; align-items: center; }
+    .header img { border-radius: 50%; width: 80px; margin-right: 1rem; }
+    .message { border-bottom: 1px solid #ddd; padding: 1rem 0; }
+    .message time { font-size: .8rem; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    {% if info.photo %}
+      <img src="{{ info.photo }}" alt="Profile"/>
+    {% endif %}
+    <div>
+      <h1>{{ info.name }}</h1>
+      <p>{{ info.desc }}</p>
+      <small>{{ info.subs }} subscribers</small>
+    </div>
+  </div>
+
+  <h2>Messages</h2>
+  {% for msg in messages %}
+    <div class="message">
+      <time>{{ msg.date }}</time>
+      <p>{{ msg.content }}</p>
+      {% if msg.images %}
+        {% for img in msg.images %}
+          <img src="{{ img }}" style="max-width:200px; display:block; margin-top:.5rem;"/>
+        {% endfor %}
+      {% endif %}
+      <small>👁️ {{ msg.views }}</small>
+    </div>
+  {% endfor %}
+</body>
+</html>
