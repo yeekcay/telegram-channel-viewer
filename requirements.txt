@@ -1,3 +1,3 @@
 Flask>=2.2.0
 gunicorn>=20.0.0
-git+https://github.com/bargmy/telegram-channel-viewer.git@main#egg=telegram_channel_viewer
+telegram_channel_viewer @ git+https://github.com/bargmy/telegram-channel-viewer.git@main#egg=telegram_channel_viewer
