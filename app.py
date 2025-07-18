@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from telegram_channel_viewer.channel import Channel
+from init import channel  # Import the channel function
 import os
 
 app = Flask(__name__)
@@ -18,14 +18,14 @@ def index():
 @app.route("/channel/<name>")
 def view_channel(name):
     try:
-        ch = Channel(name)
+        ch = channel(name)  # Use the channel function
         info = {
             "name": ch.channel_name,
             "desc": ch.channel_description,
             "subs": ch.channel_subs,
             "photo": ch.channel_profile
         }
-        messages = ch.messages
+        messages = ch.messages  # <-- Add this line
         return render_template("channel.html", info=info, messages=messages)
     except Exception as e:
         flash(f"Error fetching channel: {e}")
